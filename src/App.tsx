@@ -48,9 +48,9 @@ function CurrentDRIS({candidates}: {candidates: string[]}) {
   const now = new Date();
 
     return (<div className="primary-info-callout rounded-md p-8 mb-8 text-2xl text-slate-800 text-opacity-90">
-      {candidates.filter(Boolean).length > 1 ? (
+      {candidates.length > 1 ? (
         <>
-          <small className="uppercase text-md mb-2 inline-block">Week <span className="font-bold underline">{getWeekNumber(now)}</span> of {new Intl.DateTimeFormat('en', { year: 'numeric' }).format(now)}</small>
+          <small className="uppercase text-md mb-2 inline-block">Week <span className="font-bold underline">{getWeekNumber(now)}/52</span> of {now.getFullYear()}</small>
           <p>The current DRI is <strong className="capitalize">{getWeeklyDRI(candidates.filter(Boolean))}</strong></p>
           <p>The next DRI is <strong className="capitalize">{getWeeklyDRI(candidates, new Date(Date.now() + WEEK_MILLISECONDS))}</strong></p>
         </>
